@@ -18,8 +18,8 @@ nr_correct = 0
 epochs = 3
 for epoch in range(epochs):
     for img, l in zip(images, labels):
-        img.shape += (1,)
-        l.shape += (1,)
+        img.shape += (1,) # converts from a vector of size 784 to a matrix of (784, 1)
+        l.shape += (1,) # converts from a vector of size 10 to a matrix of (10, 1)
         # Forward propagation input -> hidden
         h_pre = b_i_h + w_i_h @ img
         h = 1 / (1 + np.exp(-h_pre))
